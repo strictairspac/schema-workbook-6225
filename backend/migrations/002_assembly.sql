@@ -1,0 +1,5 @@
+-- Assembly pipeline tables are applied idempotently by SQLAlchemy metadata.create_all.
+-- Authoritative models: src/models/entities.py (sample_rows, corrections, assemblies,
+-- assembly_batches, assembly_states). Sample values, assembled rows and snapshots are
+-- persisted as MySQL JSON; assemblies carry a UNIQUE(report_id, version) guard so a
+-- late batch can never overwrite a newer published version.
